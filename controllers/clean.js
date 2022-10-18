@@ -32,10 +32,17 @@ const createBook = async (req, res) => {
         img_url: req.body.img_url,
         description: req.body.description,
         publishedDate: req.body.publishedDate,
-        isbn: body.isbn,
-
+        isbn: req.body.isbn,
+        review: {
+            review1: {
+                stars: req.body.stars,
+                content: req.body.content,
+                person: req.body.content,
+                reviewLocation: req.body.content
+            }
+        }
     };
-    const response = await mongodb.getDb().db("cse341-books").collection('Clean Romance').insertOne(contact);
+    const response = await mongodb.getDb().db("cse341-books").collection('Clean Romance').insertOne(book);
     if (response.acknowledged) {
         res.status(201).json(response);
     } else {

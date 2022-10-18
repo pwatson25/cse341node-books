@@ -61,6 +61,12 @@
                 },
                 "publishedDate": {
                   "example": "any"
+                },
+                "isbn": {
+                  "example": "any"
+                },
+                "stars": {
+                  "example": "any"
                 }
               }
             }
