@@ -5,7 +5,7 @@ const doc = {
         title: 'Village Lane Publishing Books API',
         description: 'Village Lane Publishing Books',
     },
-    host: 'https://cse341node-books.onrender.com',
+    host: 'cse341node-books.onrender.com',
     schemes: ['http', 'https']
 };
 
