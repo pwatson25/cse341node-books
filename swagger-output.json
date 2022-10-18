@@ -5,7 +5,7 @@
     "description": "Village Lane Publishing Books",
     "version": "1.0.0"
   },
-  "host": "cse341node-books.onrender.com",
+  "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
     "http",
@@ -66,6 +66,9 @@
                   "example": "any"
                 },
                 "stars": {
+                  "example": "any"
+                },
+                "content": {
                   "example": "any"
                 }
               }
