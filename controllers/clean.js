@@ -55,11 +55,14 @@ const updateBook = async (req, res) => {
     const userId = new ObjectId(req.params.id);
     // be aware of updateOne if you only want to update specific fields
     const book = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
         title: req.body.title,
-        img_url: req.body.img_url
+        authorFirst: req.body.authorFirst,
+        authorLast: req.body.authorLast,
+        listPrice: req.body.listPrice,
+        img_url: req.body.img_url,
+        description: req.body.description,
+        publishedDate: req.body.publishedDate,
+        isbn: req.body.isbn,
     };
     const response = await mongodb
         .getDb().db("cse341-books").collection('Clean Romance').replaceOne({
