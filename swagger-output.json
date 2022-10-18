@@ -114,19 +114,28 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
                 "title": {
                   "example": "any"
                 },
+                "authorFirst": {
+                  "example": "any"
+                },
+                "authorLast": {
+                  "example": "any"
+                },
+                "listPrice": {
+                  "example": "any"
+                },
                 "img_url": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "publishedDate": {
+                  "example": "any"
+                },
+                "isbn": {
                   "example": "any"
                 }
               }
@@ -204,6 +213,9 @@
                 },
                 "publishedDate": {
                   "example": "any"
+                },
+                "isbn": {
+                  "example": "any"
                 }
               }
             }
@@ -254,19 +266,28 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
                 "title": {
                   "example": "any"
                 },
+                "authorFirst": {
+                  "example": "any"
+                },
+                "authorLast": {
+                  "example": "any"
+                },
+                "listPrice": {
+                  "example": "any"
+                },
                 "img_url": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "publishedDate": {
+                  "example": "any"
+                },
+                "isbn": {
                   "example": "any"
                 }
               }
