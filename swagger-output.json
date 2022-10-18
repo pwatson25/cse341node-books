@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Contacts API",
-    "description": "Village Lane Publishing Contacts",
+    "title": "Village Lane Publishing Books API",
+    "description": "Village Lane Publishing Books",
     "version": "1.0.0"
   },
   "host": "",
