@@ -2,7 +2,7 @@ const mongodb = require('../db/connect');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
-    // #swagger.description = 'Get all contacts'
+    // #swagger.description = 'Get all books'
     const result = await mongodb.getDb().db("cse341-books").collection('Clean Romance').find();
     result.toArray().then((lists) => {
         res.setHeader('Content-Type', 'application/json');
@@ -11,7 +11,7 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
-    // #swagger.description = 'Get single contact by ID'
+    // #swagger.description = 'Get single book by ID'
     const userId = new ObjectId(req.params.id);
     const result = await mongodb.getDb().db("cse341-books").collection('Clean Romance').find({
         _id: userId
@@ -22,14 +22,18 @@ const getSingle = async (req, res) => {
     });
 };
 
-const createContact = async (req, res) => {
-    // #swagger.description = 'Create contact'
-    const contact = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
+const createBook = async (req, res) => {
+    // #swagger.description = 'Create book'
+    const book = {
         title: req.body.title,
-        img_url: req.body.img_url
+        authorFirst: req.body.authorFirst,
+        authorLast: req.body.authorLast,
+        listPrice: req.body.listPrice,
+        img_url: req.body.img_url,
+        description: req.body.description,
+        publishedDate: req.body.publishedDate,
+        isbn: body.isbn,
+
     };
     const response = await mongodb.getDb().db("cse341-books").collection('Clean Romance').insertOne(contact);
     if (response.acknowledged) {
@@ -39,11 +43,11 @@ const createContact = async (req, res) => {
     }
 };
 
-const updateContact = async (req, res) => {
+const updateBook = async (req, res) => {
     // #swagger.description = 'Update contact'
     const userId = new ObjectId(req.params.id);
     // be aware of updateOne if you only want to update specific fields
-    const contact = {
+    const book = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
@@ -53,17 +57,17 @@ const updateContact = async (req, res) => {
     const response = await mongodb
         .getDb().db("cse341-books").collection('Clean Romance').replaceOne({
             _id: userId
-        }, contact);
+        }, book);
     console.log(response);
     if (response.modifiedCount > 0) {
         res.status(204).send();
     } else {
-        res.status(500).json(response.error || 'Some error occurred while updating the contact.');
+        res.status(500).json(response.error || 'Some error occurred while updating the book.');
     }
 };
 
-const deleteContact = async (req, res) => {
-    // #swagger.description = 'Delete contact's
+const deleteBook = async (req, res) => {
+    // #swagger.description = 'Delete book's
     const userId = new ObjectId(req.params.id);
     const response = await mongodb.getDb().db("cse341-books").collection('Clean Romance').remove({
         _id: userId
@@ -72,7 +76,7 @@ const deleteContact = async (req, res) => {
     if (response.deletedCount > 0) {
         res.status(204).send();
     } else {
-        res.status(500).json(response.error || 'Some error occurred while deleting the contact.');
+        res.status(500).json(response.error || 'Some error occurred while deleting the book.');
     }
 };
 
@@ -142,7 +146,7 @@ const deleteContact = async (req, res) => {
 module.exports = {
     getAll,
     getSingle,
-    createContact,
-    updateContact,
-    deleteContact
+    createBook,
+    updateBook,
+    deleteBook
 };

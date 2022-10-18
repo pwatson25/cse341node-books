@@ -1,20 +1,27 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Village Lane Publishing Books API",
-    "description": "Village Lane Publishing Books",
+    "title": "Contacts API",
+    "description": "Village Lane Publishing Contacts",
     "version": "1.0.0"
   },
-  "host": "",
+  "host": "cse341-node-ookv.onrender.com",
   "basePath": "/",
   "schemes": [
     "http",
     "https"
   ],
   "paths": {
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
     "/contacts/": {
       "get": {
-        "description": "Get all contacts",
+        "description": "Get all books",
         "produces": [
           "application/json"
         ],
@@ -26,7 +33,7 @@
         }
       },
       "post": {
-        "description": "Create contact",
+        "description": "Create book",
         "parameters": [
           {
             "name": "body",
@@ -34,19 +41,25 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
-                  "example": "any"
-                },
-                "lastName": {
-                  "example": "any"
-                },
-                "email": {
-                  "example": "any"
-                },
                 "title": {
                   "example": "any"
                 },
+                "authorFirst": {
+                  "example": "any"
+                },
+                "authorLast": {
+                  "example": "any"
+                },
+                "listPrice": {
+                  "example": "any"
+                },
                 "img_url": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "publishedDate": {
                   "example": "any"
                 }
               }
@@ -65,7 +78,7 @@
     },
     "/contacts/{id}": {
       "get": {
-        "description": "Get single contact by ID",
+        "description": "Get single book by ID",
         "produces": [
           "application/json"
         ],
@@ -127,7 +140,7 @@
         }
       },
       "delete": {
-        "description": "Delete contact",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -136,14 +149,7 @@
             "type": "string"
           }
         ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
+        "responses": {}
       }
     }
   }
