@@ -33,7 +33,6 @@ const createBook = async (req, res) => {
         description: req.body.description,
         publishedDate: req.body.publishedDate,
         isbn: req.body.isbn,
-        // review: req.object.review
         review: {
             review1: {
                 stars: req.body.stars,
