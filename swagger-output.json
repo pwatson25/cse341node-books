@@ -5,7 +5,7 @@
     "description": "Village Lane Publishing Books",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "https://cse341node-books.onrender.com",
   "basePath": "/",
   "schemes": [
     "http",
@@ -21,19 +21,67 @@
     },
     "/clean/": {
       "get": {
-        "description": "",
+        "description": "Get all books",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       },
       "post": {
-        "description": "",
-        "parameters": [],
-        "responses": {}
+        "description": "Create book",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "example": "any"
+                },
+                "authorFirst": {
+                  "example": "any"
+                },
+                "authorLast": {
+                  "example": "any"
+                },
+                "listPrice": {
+                  "example": "any"
+                },
+                "img_url": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "publishedDate": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/clean/{id}": {
       "get": {
-        "description": "",
+        "description": "Get single book by ID",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -42,22 +90,57 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       },
       "put": {
-        "description": "",
+        "description": "Update contact",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "title": {
+                  "example": "any"
+                },
+                "img_url": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
-        "responses": {}
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       },
       "delete": {
-        "description": "",
+        "description": "Delete book",
         "parameters": [
           {
             "name": "id",
@@ -66,7 +149,14 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/fantasy/": {
