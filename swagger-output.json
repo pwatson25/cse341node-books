@@ -5,7 +5,7 @@
     "description": "Village Lane Publishing Books",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "cse341node-books.onrender.com",
   "basePath": "/",
   "schemes": [
     "http",
@@ -64,37 +64,6 @@
                 },
                 "isbn": {
                   "example": "any"
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "reviews": {
-                      "schema": {
-                        "type": "object",
-                        "properties": {
-                          "review1": {
-                            "schema": {
-                              "type": "object",
-                              "properties": {
-                                "stars": {
-                                  "example": "any"
-                                },
-                                "content": {
-                                  "example": "any"
-                                },
-                                "person": {
-                                  "example": "any"
-                                },
-                                "reviewLocation": {
-                                  "example": "any"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }

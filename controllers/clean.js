@@ -33,14 +33,14 @@ const createBook = async (req, res) => {
         description: req.body.description,
         publishedDate: req.body.publishedDate,
         isbn: req.body.isbn,
-        review: {
-            review1: {
-                stars: req.body.stars,
-                content: req.body.content,
-                person: req.body.person,
-                reviewLocation: req.body.reviewLocation
-            }
-        }
+        // review: {
+        //     review1: {
+        //         stars: req.body.stars,
+        //         content: req.body.content,
+        //         person: req.body.person,
+        //         reviewLocation: req.body.reviewLocation
+        //     }
+        // }
     };
     const response = await mongodb.getDb().db("cse341-books").collection('Clean Romance').insertOne(book);
     if (response.acknowledged) {
