@@ -3,7 +3,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
     // #swagger.description = 'Get all books'
-    const result = await mongodb.getDb().db("cse341-books").collection('Clean Romance').find();
+    const result = await mongodb.getDb().db("cse341-books").collection('Fairytales and Fantasy').find();
     result.toArray().then((lists) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(lists);
@@ -13,7 +13,7 @@ const getAll = async (req, res) => {
 const getSingle = async (req, res) => {
     // #swagger.description = 'Get single book by ID'
     const userId = new ObjectId(req.params.id);
-    const result = await mongodb.getDb().db("cse341-books").collection('Clean Romance').find({
+    const result = await mongodb.getDb().db("cse341-books").collection('Fairytales and Fantasy').find({
         _id: userId
     });
     result.toArray().then((lists) => {
@@ -35,7 +35,7 @@ const createBook = async (req, res) => {
         isbn: body.isbn,
 
     };
-    const response = await mongodb.getDb().db("cse341-books").collection('Clean Romance').insertOne(contact);
+    const response = await mongodb.getDb().db("cse341-books").collection('Fairytales and Fantasy').insertOne(contact);
     if (response.acknowledged) {
         res.status(201).json(response);
     } else {
@@ -55,7 +55,7 @@ const updateBook = async (req, res) => {
         img_url: req.body.img_url
     };
     const response = await mongodb
-        .getDb().db("cse341-books").collection('Clean Romance').replaceOne({
+        .getDb().db("cse341-books").collection('Fairytales and Fantasy').replaceOne({
             _id: userId
         }, book);
     console.log(response);
@@ -69,7 +69,7 @@ const updateBook = async (req, res) => {
 const deleteBook = async (req, res) => {
     // #swagger.description = 'Delete book's
     const userId = new ObjectId(req.params.id);
-    const response = await mongodb.getDb().db("cse341-books").collection('Clean Romance').remove({
+    const response = await mongodb.getDb().db("cse341-books").collection('Fairytales and Fantasy').remove({
         _id: userId
     }, true);
     console.log(response);
@@ -79,69 +79,6 @@ const deleteBook = async (req, res) => {
         res.status(500).json(response.error || 'Some error occurred while deleting the book.');
     }
 };
-
-// const createContact = async (req, res, next) => {
-//     try {
-//         const {
-//             firstName,
-//             lastName,
-//             email,
-//             title,
-//             img_url
-//         } = req.body;
-//         const response = Contact.createContact({
-//             firstName,
-//             lastName,
-//             email,
-//             title,
-//             img_url,
-//         });
-
-//         res.status(201);
-//         res.json({
-//             _id: response.instertedID
-//         });
-//     } catch (e) {
-//         next(e);
-//     }
-// };
-
-
-// const updateContact = async (req, res, next) => {
-//     try {
-//         const {
-//             firstName,
-//             lastName,
-//             email,
-//             title,
-//             img_url
-//         } = req.body;
-
-//         await Contact.updateContact(req.params.id, {
-//             firstName,
-//             lastName,
-//             email,
-//             title,
-//             img_url,
-//         });
-
-//         res.status(204);
-//         res.json(req.body);
-//     } catch (e) {
-//         next(e);
-//     }
-// };
-
-// const deleteContact = async (req, res, next) => {
-//     try {
-//         await Contact.deleteContact(req.params.id);
-
-//         res.status(200);
-//         res.end();
-//     } catch (e) {
-//         next(e);
-//     }
-// };
 
 module.exports = {
     getAll,

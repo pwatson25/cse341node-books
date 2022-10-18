@@ -1,11 +1,11 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Contacts API",
-    "description": "Village Lane Publishing Contacts",
+    "title": "Village Lane Publishing Books API",
+    "description": "Village Lane Publishing Books",
     "version": "1.0.0"
   },
-  "host": "cse341-node-ookv.onrender.com",
+  "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
     "http",
@@ -19,7 +19,57 @@
         "responses": {}
       }
     },
-    "/contacts/": {
+    "/clean/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      },
+      "post": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/clean/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/fantasy/": {
       "get": {
         "description": "Get all books",
         "produces": [
@@ -76,7 +126,7 @@
         }
       }
     },
-    "/contacts/{id}": {
+    "/fantasy/{id}": {
       "get": {
         "description": "Get single book by ID",
         "produces": [
@@ -140,7 +190,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Delete book",
         "parameters": [
           {
             "name": "id",
@@ -149,7 +199,14 @@
             "type": "string"
           }
         ],
-        "responses": {}
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     }
   }

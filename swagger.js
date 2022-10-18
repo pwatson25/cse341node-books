@@ -2,10 +2,10 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
     info: {
-        title: 'Contacts API',
-        description: 'Village Lane Publishing Contacts',
+        title: 'Village Lane Publishing Books API',
+        description: 'Village Lane Publishing Books',
     },
-    host: 'cse341-node-ookv.onrender.com',
+    host: 'localhost:8080',
     schemes: ['http', 'https']
 };
 
